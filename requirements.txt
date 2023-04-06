@@ -1,0 +1,8 @@
+flask
+flask-smorest
+requests
+qrcode
+python-dotenv
+sqlalchemy
+flask-sqlalchemy
+responses
