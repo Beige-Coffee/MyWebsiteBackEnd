@@ -6,7 +6,7 @@ from db import db
 
 from resources.invoice import blp as InvoiceBluePrint
 from resources.stats import blp as StatsBluePrint
-from config import DB_URI
+#from config import DB_URI
 import models
 
 def create_app(db_url=None):
@@ -20,7 +20,7 @@ def create_app(db_url=None):
     app.config['OPENAPI_SWAGGER_UI_PATH'] = "/swagger-ui"
     app.config['OPENAPI_SWAGGER_UI_URL'] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
     #app.config['SQLALCHEMY_DATABASE_URI'] = db_url or os.getenv("DATABASE_URL", "sqlite:///data.db")
-    app.config['SQLALCHEMY_DATABASE_URI'] = DB_URI
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DB_URI']
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.init_app(app)
 

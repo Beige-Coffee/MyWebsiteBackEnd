@@ -4,12 +4,16 @@ from flask import request
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
 from sqlalchemy.exc import SQLAlchemyError
+import os
 
 from models import LightningTipsModel
 from utils import create_lnbits_invoice
-from config import LNBITS_API_KEY, LNBITS_URL
+#from config import LNBITS_API_KEY, LNBITS_URL
 from schemas import InvoiceCreateSchema
 from db import payments, db
+
+LNBITS_URL = os.environ['LNBITS_URL']
+LNBITS_API_KEY = os.environ['LNBITS_API_KEY']
 
 blp = Blueprint("invoice", __name__, description="Operations on invoices")
 
